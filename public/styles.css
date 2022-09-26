@@ -31,3 +31,13 @@ padding: 10px;
     font-size: 25px;
     color: brown;
 }
+
+.contentAbsolut {
+    background-color: blue;
+    height: 50px;
+}
+
+.contentRelative {
+    height: 150px;
+    background-color: red;
+}
