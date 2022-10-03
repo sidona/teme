@@ -26,6 +26,159 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <script>
+
+function calculateVat(price) {
+  return price * 0.19;
+}
+function calculatePrice(price, vat) {
+return price + vat;
+}
+
+function calculateSum(price1, price2, price3) {
+  return price1 + price2;
+}
+
+const filterAge = (age) => {
+if(age<=18) {
+  return 'Minor'
+} else if(age>18 && age <25) {
+  return 'Ceva'
+} else {
+  return 'Major'
+}
+}
+
+
+function myFunction() {
+
+  let price1 = 100;
+  let price2 = 200;
+  let age1 = 25;
+  let age2 = 16;
+
+  const vat1 = calculateVat(price1);
+  const vat2 = calculateVat(price2);
+
+ const totalPrice = calculatePrice(price1, vat1);
+
+ const sum = calculateSum(price1, price2, 10);
+
+ const filter1 = filterAge(22);
+ const filter2 = filterAge(10);
+ const filter3 = filterAge(30);
+
+
+ const dataArray1 =[
+ {
+    "user": "Adi",
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+  },
+  {
+    "user": "Gianina",
+    "id": 2,
+    "title": "qui est esse",
+    "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+  },
+  {
+    "user": "Vlad",
+    "id": 3,
+    "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+    "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+  },
+ ];
+
+ const arrayString = ['Sidona', 'Gianina', 'Adi']
+ const  newDataArr = arrayString.map(ar =>{
+  if(ar === 'Gianina'){
+    return 'Ginina2'
+  } 
+  return ar;
+ })
+
+ const newData = dataArray1.map(data => {
+if(data.user === 'Gianina') {
+  return {
+    user: 'GianinaRescruis',
+    id: 2,
+    title:'ggg',
+    body: 'nnnn'
+  } 
+}
+return {
+      user: data.user,
+      id: data.id,
+    title:data.title,
+    body: data.body
+    }
+
+ });
+
+ const findGianina = dataArray1.find(data => data.user === 'Gianina')
+ const findGianina2 = arrayString.find(data => data === 'Gianina')
+
+ console.log(newData, 'findGianina', findGianina, newDataArr)
+
+
+
+  // let one = 10;
+  // let two = 5;
+  // const dataArray = [
+  //   "Sidona", "Madalina", "adi"
+  // ];
+
+
+  // const objectData = {
+  //   name: 'Sidona',
+  //   email: 'sss@ceva.com'
+  // };
+
+  // let object2 = {
+  //   name: 'madalina',
+  //   email: 'sss@ceva.com'
+  // }
+
+  // object2 = {
+  //   name: 'Sidona',
+  //   email: 'sss@ceva.com'
+  // };
+
+
+  // console.log('object2', object2)
+
+  // console.log(objectData.email)
+
+  // const dataBool = true;
+
+  // const sumData = one + two;
+  // const diffData = one - two;
+
+  // console.log('sumData', sumData, 'diffData', diffData)
+  // var name = 'Sidona';
+  // const email = 'sidona_g@yahoo.com';
+
+  // const array2 = [
+  // 'ccc', 'bbb'
+
+  // ]
+
+  // console.log('position', dataArray[1])
+  // const dataFind = dataArray.find(el => el === 'Sidona');
+  // const dataFilter = dataArray.filter(el => el === 'Sidona')
+  // const concatArray = dataArray.concat(array2)
+  // console.log('click button console', name, email, 'length array',dataArray.length, concatArray)
+  // alert('click button');
+
+  // document.write("<h1>Ceva</h1")
+}
+function data() {
+    let title = 'ceva';
+    title = 'vvvv';
+    var name = 'alt nume'
+  }
+    </script>
   </head>
   <body>
     <header class="headerContent">
@@ -54,11 +207,12 @@
                             </div>
                   <div class="contentChild">
                     <h6>Child 2</h6>
+                  <button onclick="myFunction()">click me</button>
                   </div>
     </div>
     <!-- <div id="root"></div> -->
     <!--
-      This HTML file is a template.
+      This HTML file is a template. 
       If you open it directly in the browser, you will see an empty page.
 
       You can add webfonts, meta tags, or analytics to this file.
