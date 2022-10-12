@@ -26,6 +26,113 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <script>
+
+
+const nameSwitch = (name) => {
+  switch(name) {
+    case 'hota':
+      return alert('hota')
+      case 'plita':
+      return alert('plita')
+      case 'cuptor':
+      return alert('cuptor')
+      default:
+        return alert('nu exista')
+  }
+}
+
+
+function myFunction() {
+  const products = [
+{
+id: 1,
+price: "2500.5",
+name: "cuptor"
+},
+{
+id: 2,
+price: "1900.5",
+name: "plita"
+},
+{
+id: 3,
+price: "700",
+name: "hota"
+}
+];
+
+
+  // 1- sa creem o factura cu toate elementele de mai sus - suma totala, tva pe fiecare element și tva total.
+
+  // intai adaugam tva pe element - aici putem si sa adaugam pret cu tva ca sa eliminam calculul de la final suma totala * tva = TVA total - deci se poate face cum doreste fiecare
+
+  const addTvaProducts = products.map(product => {
+    return {
+      ...product,
+      tva: parseFloat(product.price) * 0.19
+    }
+  })
+
+  const totalSum = products.reduce((acc, product) => {
+    return parseFloat(acc) + parseFloat(product.price)
+  }, 0);
+  const calculateTotalTva = addTvaProducts.reduce((acc, product) =>{
+    return parseFloat(acc) + parseFloat(product.tva)
+  }, 0);
+  const calculateSumWithTva = parseFloat(totalSum) * 1.19;
+
+
+
+  console.log('addTvaProducts', addTvaProducts, 'totalSum', totalSum, 'calculateSumWithTva', calculateSumWithTva, 'calculateTotalTva', calculateTotalTva);
+
+
+  // 2-  sa stergem produsul plita din lista și sa refacem suma totala și tva
+
+  // o sa fac cu filter 
+
+  const newArray = products.filter(product => product !== 'plita');
+
+  const newArraySum = newArray.reduce((acc, product) => {
+    return parseFloat(acc) + parseFloat(product.price)
+  }, 0);
+
+  const calculateTvaNew = parseFloat(newArraySum) * 0.19;
+
+  console.log('fara plita', newArray, 'suma totala', newArraySum, 'tva', calculateTvaNew);
+
+
+  // 3 sa modificam prețul la id cu nr 1
+
+  const newPrice = products.map(product => {
+    return {
+      ...product,
+      price: '79'
+    }
+  })
+
+  //4 - sa sortam dupa pret
+
+  const sortByPrice = products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+  console.log('sortByPrice', sortByPrice);
+
+  //5 sa mapam array-ul și daca avem pret mai mare de 2000 sa afișăm în alert(“Scump”) altefe (“Ieftin”)
+
+  products.map(product => {
+    if(parseFloat(product.price) > 2000) {
+      return alert('Scump')
+    }
+    alert ('Ieftin');
+    return product;
+  })
+
+  // 6 sa crem o funcție de switch dupa nume și sa afisam în alert numele produsului
+//apelam fuctia si schimbam parametrii
+
+nameSwitch('hota')
+
+}
+    </script>
   </head>
   <body>
     <header class="headerContent">
@@ -54,11 +161,13 @@
                             </div>
                   <div class="contentChild">
                     <h6>Child 2</h6>
+                  <button onclick="myFunction()">click me</button>
+                  <button onclick="exercises()">click me</button>
                   </div>
     </div>
     <!-- <div id="root"></div> -->
     <!--
-      This HTML file is a template.
+      This HTML file is a template. 
       If you open it directly in the browser, you will see an empty page.
 
       You can add webfonts, meta tags, or analytics to this file.
