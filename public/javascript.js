@@ -216,3 +216,27 @@ const newArray = orders.map(order => {
  })
 
  console.log('newArray', newArray)
+
+ function functionDom() {
+  const elementParagraph = document.getElementById(`p1`);
+  const elementContent = document.getElementById('content');
+  const elementInput = document.getElementById(`textInput`);
+
+  elementParagraph.style.color = 'blue';
+  elementParagraph.style.fontSize = '55px';
+  elementParagraph.style.marginLeft = '50px';
+  elementParagraph.style.marginTop = '250px';
+
+  elementContent.style.border = '1px solid red';
+  const textContent = elementParagraph.textContent;
+
+  elementParagraph.textContent = 'test new content'
+
+  elementInput.value = 'New value';
+
+  const valueRead  = elementInput.value
+  alert(valueRead)
+
+
+  console.log('elementParagraph', elementParagraph, 'elementInput', elementInput, 'textContent', textContent)
+ }
